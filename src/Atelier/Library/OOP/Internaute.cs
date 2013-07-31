@@ -1,5 +1,5 @@
 
-namespace Library.@object
+namespace Library.OOP
 {
     public class Internaute {
 

@@ -1,10 +1,13 @@
 
 using System;
 
-public class DomAdvertiser {
+namespace Library.naming
+{
+    public class DomAdvertiser {
 
-	public String GetCode() {
-		return null;
-	}
+        public String GetCode() {
+            return null;
+        }
 
+    }
 }

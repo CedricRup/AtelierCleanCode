@@ -26,9 +26,12 @@ using System;
 using System.Collections;
 using log4net;
 
-namespace Library.coment
+namespace Library.Comment
 {
-    public class ControllerBaseAttributes {
+    public class ControllerBaseAttributes
+    {
+
+        #region Fields
 
         private static ILog logger = LogManager.GetLogger(typeof(ControllerBaseAttributes));
 
@@ -44,12 +47,24 @@ namespace Library.coment
 	 */
         public bool enableRedirectParam = false;
 
+        #endregion
+
         /**
 	 * Constructeur de <code>ControllerBaseAttributes</code>
 	 */
-        public ControllerBaseAttributes() {
+
+        #region Constructors
+
+        public ControllerBaseAttributes()
+        {
             enableRedirectParam = false;
         }
+
+        #endregion
+
+
+        #region Methods
+
 
         /**
 	 * Renvoie une instance de la classe attributes correspondant au paramêtre
@@ -63,46 +78,55 @@ namespace Library.coment
 	 * nouvelle instance de la classe CtrlAttributesxxx (ou xxx est le nom de
 	 * l'action), située dans le même package que le controleur en cours.
 	 */
+
         public static ControllerBaseAttributes getInstance(HttpServletRequest req, SessionContainer sc,
-                                                           Type controllerClass) {
+                                                           Type controllerClass)
+        {
             ControllerBaseAttributes attributes = null;
             bool isMultipartContent = FileUploadBase.IsMultipartContent(req);
             ArrayList l = null;
             String action = null;
             Hashtable h = null;
-            if (isMultipartContent) {
+            if (isMultipartContent)
+            {
                 // Retrieve multipart content
                 DefaultFileItemFactory dfif = new DefaultFileItemFactory();
                 FileUpload upload = new FileUpload(dfif);
                 String s = SConfig.GetInstance().getProperty("Config.upload.maxSize");
                 long maxUploadSize = long.Parse(s);
                 upload.SetSizeMax(maxUploadSize);
-                try {
+                try
+                {
                     l = upload.ParseRequest(req);
                     h = new Hashtable(l.Count);
-                   
+
                     foreach (DefaultFileItem defaultFileItem in l)
                     {
-                        h[defaultFileItem.GetFieldName()] =  defaultFileItem;
-                        
+                        h[defaultFileItem.GetFieldName()] = defaultFileItem;
+
                     }
-                    
+
                     // récupêre le paramêtre ACTION
-                    FileItem fi = ( FileItem) h[ControllerBase.ACTION_PARAMETER];
-                    if (fi != null) {
+                    FileItem fi = (FileItem)h[ControllerBase.ACTION_PARAMETER];
+                    if (fi != null)
+                    {
                         action = fi.GetString();
                     }
                 }
-                catch (FileUploadBase.SizeLimitExceededException slee) {
+                catch (FileUploadBase.SizeLimitExceededException slee)
+                {
                     // Le fichier uploadé dépasse la taille maximale
                     sc.setMessageErreurKey("error.parameter.file_size");
-                    if (logger.IsDebugEnabled) {
+                    if (logger.IsDebugEnabled)
+                    {
                         logger.Debug("ControllerBaseAttributes", slee);
                     }
                     throw new IncorrectParameterException();
                 }
-                catch (FileUploadException e) {
-                    if (logger.IsErrorEnabled) {
+                catch (FileUploadException e)
+                {
+                    if (logger.IsErrorEnabled)
+                    {
                         logger.Error("Impossible de parser la requête multiform", e);
                     }
                     l = null;
@@ -111,28 +135,35 @@ namespace Library.coment
                     throw new IncorrectParameterException();
                 }
             }
-            else {
+            else
+            {
                 action = req.GetParameter(ControllerBase.ACTION_PARAMETER);
             }
             String className = controllerClass.FullName;
             // x7786 3.5 ACTION NULL ou vide
             // envoi exception pour stopper execution servlet
-            if (action == null || "".Equals(action)) {
-                if (logger.IsWarnEnabled) {
+            if (action == null || "".Equals(action))
+            {
+                if (logger.IsWarnEnabled)
+                {
                     logger.Warn("Le parametre action 'mth' n'est pas defini " + "pour le controleur " + className);
                 }
                 sc.setMessageErreurKey("error.action.null");
                 throw new IncorrectParameterException();
             }
-            else {
+            else
+            {
                 int i = className.LastIndexOf(".");
                 className = className.Substring(0, i + 1) + ControllerBase.CTRL_ATTRIBUTES_PREFIX + action;
-                try {
+                try
+                {
                     Type attributesClass = Type.GetType(className);
-                    attributes = (ControllerBaseAttributes) Activator.CreateInstance(attributesClass);
+                    attributes = (ControllerBaseAttributes)Activator.CreateInstance(attributesClass);
                 }
-                catch (TypeLoadException cnfe) {
-                    if (logger.IsWarnEnabled) {
+                catch (TypeLoadException cnfe)
+                {
+                    if (logger.IsWarnEnabled)
+                    {
                         logger.Warn("la classe " + className + " n'a pas été trouvée " + "pour gérer l'action " + action
                                     + " dans le controleur " + controllerClass.FullName);
                     }
@@ -142,17 +173,20 @@ namespace Library.coment
                     throw new IncorrectParameterException();
                 }
             }
-            if (attributes == null) {
+            if (attributes == null)
+            {
                 attributes = new ControllerBaseAttributes();
             }
-            if (isMultipartContent) {
+            if (isMultipartContent)
+            {
                 attributes.setFileItems(h);
             }
             attributes.setAction(action);
             return attributes;
-                                                           }
+        }
 
-        private void setFileItems(Hashtable h) {
+        private void setFileItems(Hashtable h)
+        {
         }
 
 
@@ -162,70 +196,18 @@ namespace Library.coment
 	 * 
 	 * @param action The action to set
 	 */
-        public void setAction(String action) {
+
+        public void setAction(String action)
+        {
             this.action = action;
         }
     }
 
-    public class FileUploadException : Exception
-    {
-    }
-
-    public class FileItem
-    {
-        public string GetString()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class DefaultFileItem    
-    {
-        public object GetFieldName()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class FileUpload
-    {
-        public FileUpload(DefaultFileItemFactory dfif)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetSizeMax(object longValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ArrayList ParseRequest(HttpServletRequest req)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class DefaultFileItemFactory
-    {
-    }
-
-    public class FileUploadBase
-    {
-        public static bool IsMultipartContent(HttpServletRequest req)
-        {
-            throw new NotImplementedException();
-        }
-
-        public class SizeLimitExceededException : Exception
-        {
-        }
-    }
-
-    public class HttpServletRequest
-    {
-        public string GetParameter(string actionParameter)
-        {
-            throw new NotImplementedException();
-        }
-    }
+        #endregion
 }
+
+        
+
+
+
+

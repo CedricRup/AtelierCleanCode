@@ -1,4 +1,4 @@
-//----------------------------------------------------------------------------79
+﻿//----------------------------------------------------------------------------79
 // SMILE
 //
 // @(#) $Header: /home/cvs/IncorrectParameterException.cs,v 1.2 2005/11/30 16:09:28 dahug Exp $
@@ -24,7 +24,7 @@
 
 using System;
 
-namespace Library.coment
+namespace Library.Comment
 {
     public class IncorrectParameterException : Exception
     {

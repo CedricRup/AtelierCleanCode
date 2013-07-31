@@ -1,14 +1,17 @@
 
 using System;
 
-public class ErrorMessage {
+namespace Library.naming
+{
+    public class ErrorMessage {
 
-	public static Object getString(String @string) {
-		return null;
-	}
+        public static Object getString(String @string) {
+            return null;
+        }
 
-    public static object GetString(string userHasntLoadUser)
-    {
-        throw new NotImplementedException();
+        public static object GetString(string userHasntLoadUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

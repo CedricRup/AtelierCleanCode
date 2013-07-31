@@ -22,17 +22,20 @@
 
 using System;
 
-public abstract class ControllerBase  {
+namespace Library.Comment
+{
+    public abstract class ControllerBase  {
 
 
-    /** paramêtre définissant la méthode du contrôleur à appeler */
-    public static readonly String ACTION_PARAMETER = "mth";
+        /** paramêtre définissant la méthode du contrôleur à appeler */
+        public static readonly String ACTION_PARAMETER = "mth";
 
-    /** Suffixe de toutes les classes Java étendant de la classe ControllerBase */
-    public static readonly String CTRL_SUFFIXE = "Ctrl";
+        /** Suffixe de toutes les classes Java étendant de la classe ControllerBase */
+        public static readonly String CTRL_SUFFIXE = "Ctrl";
 
-    /** Préfixe des classes qui étendent de ControllerBaseAttributes */
-    public static readonly String CTRL_ATTRIBUTES_PREFIX = "CtrlAttributes";
+        /** Préfixe des classes qui étendent de ControllerBaseAttributes */
+        public static readonly String CTRL_ATTRIBUTES_PREFIX = "CtrlAttributes";
 
 
+    }
 }

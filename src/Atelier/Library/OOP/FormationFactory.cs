@@ -16,19 +16,22 @@
 //
 // ----------------------------------------------------------------------------79
 
-public class FormationFactory {
+namespace Library.OOP
+{
+    public class FormationFactory {
 
-	public static void insert(Formation formation)  {
+        public static void insert(Formation formation)  {
 
-	}
+        }
 
-	public static void update(Formation formation) {
+        public static void update(Formation formation) {
 
-	}
+        }
 
-	public static int getPourcent(long intId) {
-		int pourcent = 42;
+        public static int getPourcent(long intId) {
+            int pourcent = 42;
 
-		return pourcent;
-	}
+            return pourcent;
+        }
+    }
 }

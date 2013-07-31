@@ -47,27 +47,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="coment\ControllerBase.cs" />
-    <Compile Include="coment\ControllerBaseAttributes.cs" />
-    <Compile Include="coment\IncorrectParameterException.cs" />
-    <Compile Include="coment\SConfig.cs" />
-    <Compile Include="coment\SessionContainer.cs" />
-    <Compile Include="naming\BizCriteriaImpl.cs" />
-    <Compile Include="naming\BusinessRuleException.cs" />
-    <Compile Include="naming\DomAdvertiser.cs" />
-    <Compile Include="naming\ErrorMessage.cs" />
-    <Compile Include="naming\IExtranetBoConstants.cs" />
-    <Compile Include="naming\ThreadContext.cs" />
-    <Compile Include="object\AjoutFormationCtrl.cs" />
-    <Compile Include="object\ControllerBaseAttributes.cs" />
-    <Compile Include="object\CtrlAttributesEnregistrer.cs" />
-    <Compile Include="object\CV.cs" />
-    <Compile Include="object\CVFactory.cs" />
-    <Compile Include="object\FactoryUtils.cs" />
-    <Compile Include="object\Formation.cs" />
-    <Compile Include="object\FormationFactory.cs" />
-    <Compile Include="object\Internaute.cs" />
-    <Compile Include="object\SessionContainer.cs" />
+    <Compile Include="Comment\ControllerBase.cs" />
+    <Compile Include="Comment\ControllerBaseAttributes.cs" />
+    <Compile Include="Comment\IncorrectParameterException.cs" />
+    <Compile Include="Comment\SConfig.cs" />
+    <Compile Include="Comment\SessionContainer.cs" />
+    <Compile Include="Comment\Stubs.cs" />
+    <Compile Include="Naming\BizCriteriaImpl.cs" />
+    <Compile Include="Naming\BusinessRuleException.cs" />
+    <Compile Include="Naming\DomAdvertiser.cs" />
+    <Compile Include="Naming\ErrorMessage.cs" />
+    <Compile Include="Naming\IExtranetBoConstants.cs" />
+    <Compile Include="Naming\ThreadContext.cs" />
+    <Compile Include="OOP\AjoutFormationCtrl.cs" />
+    <Compile Include="OOP\ControllerBaseAttributes.cs" />
+    <Compile Include="OOP\CtrlAttributesEnregistrer.cs" />
+    <Compile Include="OOP\CV.cs" />
+    <Compile Include="OOP\CVFactory.cs" />
+    <Compile Include="OOP\FactoryUtils.cs" />
+    <Compile Include="OOP\Formation.cs" />
+    <Compile Include="OOP\FormationFactory.cs" />
+    <Compile Include="OOP\Internaute.cs" />
+    <Compile Include="OOP\SessionContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

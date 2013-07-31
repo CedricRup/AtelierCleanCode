@@ -2,8 +2,11 @@
 
 using System;
 
-public class IExtranetBoConstants {
+namespace Library.naming
+{
+    public class IExtranetBoConstants {
 
-	public static readonly Object ID_INT = null;
+        public static readonly Object ID_INT = null;
 
+    }
 }

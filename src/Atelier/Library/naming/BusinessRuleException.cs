@@ -1,11 +1,12 @@
-
-
 using System;
 using log4net;
 
-public class BusinessRuleException {
+namespace Library.naming
+{
+    public class BusinessRuleException {
 
-	public static void throwStandardBusinessException(Object @string, ILog logger) {
-	}
+        public static void throwStandardBusinessException(Object @string, ILog logger) {
+        }
 
+    }
 }

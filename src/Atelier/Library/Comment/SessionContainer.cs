@@ -1,9 +1,7 @@
-
-
 using System;
-using Library.@object;
+using Library.OOP;
 
-namespace Library.coment
+namespace Library.Comment
 {
     public class SessionContainer {
 

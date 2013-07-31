@@ -2,7 +2,7 @@ using System;
 using System.Collections.Specialized;
 using System.Configuration;
 
-namespace Library.coment
+namespace Library.Comment
 {
     public class SConfig
     {
