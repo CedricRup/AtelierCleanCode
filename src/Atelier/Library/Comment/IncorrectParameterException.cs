@@ -29,19 +29,18 @@ namespace Library.Comment
     public class IncorrectParameterException : Exception
     {
 
-        /**
-         * 
-         */
-
+       /// <summary>
+       /// 
+       /// </summary>
         public IncorrectParameterException()
         {
             
         }
 
-        /**
-         * @param msg
-         */
-
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="msg"></param>
         public IncorrectParameterException(String msg) : base(msg)
         {
             
