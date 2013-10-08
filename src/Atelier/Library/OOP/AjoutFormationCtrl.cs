@@ -52,7 +52,7 @@ namespace Library.OOP
                 param_renseign++;
             }
             if (attEnregistrer.param_f_formation1_tfo_code != null) {
-                formation1.setTfoCode(attEnregistrer.param_f_formation1_tfo_code);
+                formation1.setTfoCode(attEnregistrer.param_f_formation1_tfo_code.Value);
                 param_renseign++;
             }
             if (param_renseign > 0) {
@@ -61,13 +61,13 @@ namespace Library.OOP
                         FormationFactory.insert(formation1);
                     }
                 else {
-                    formation1.setFrmId(attEnregistrer.param_f_formation1_frmid);
+                    formation1.setFrmId(attEnregistrer.param_f_formation1_frmid.Value);
                     FormationFactory.update(formation1);
                 }
             }
             int pourcent = FormationFactory.getPourcent(internaute.getIntId());
             if (attEnregistrer.param_f_niveau_formation != null) {
-                cv.setNivCode(attEnregistrer.param_f_niveau_formation);
+                cv.setNivCode(attEnregistrer.param_f_niveau_formation.Value);
                 pourcent = pourcent + 5;
             }
             cv.setCuvPourcentFormation(pourcent);

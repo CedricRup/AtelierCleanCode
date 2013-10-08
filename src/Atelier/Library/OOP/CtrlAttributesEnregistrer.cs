@@ -11,17 +11,17 @@ namespace Library.OOP
     public class CtrlAttributesEnregistrer : ControllerBaseAttributes
     {
 
-        public long param_f_niveau_formation;
+        public long? param_f_niveau_formation;
 
-        public long param_f_formation1_frmid;
+        public long? param_f_formation1_frmid;
 
-        public int param_f_formation1_date_debut_mois;
+        public int? param_f_formation1_date_debut_mois;
 
-        public int param_f_formation1_date_debut_annee;
+        public int? param_f_formation1_date_debut_annee;
 
-        public int param_f_formation1_date_fin_mois;
+        public int? param_f_formation1_date_fin_mois;
 
-        public int param_f_formation1_date_fin_annee;
+        public int? param_f_formation1_date_fin_annee;
 
         public String param_f_formation1_etablissement;
 
@@ -33,7 +33,7 @@ namespace Library.OOP
 
         public String param_f_formation1_specialisation;
 
-        public long param_f_formation1_tfo_code;
+        public long? param_f_formation1_tfo_code;
 
 
     }
